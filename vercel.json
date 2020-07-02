@@ -1,0 +1,20 @@
+{
+  "github": {
+    "silent": true
+  },
+  "routes": [
+    {
+      "src": "/score",
+      "dest": "/api/score.js"
+    },
+    {
+      "src": "/.*",
+      "methods": ["POST"],
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/.*",
+      "status": 404
+    }
+  ]
+}

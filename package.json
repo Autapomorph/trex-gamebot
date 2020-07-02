@@ -1,0 +1,67 @@
+{
+  "name": "trex-gamebot",
+  "version": "1.0.0",
+  "description": "Telegram bot to play classic Chrome Dino game",
+  "keywords": [
+    "telegram",
+    "bot",
+    "game",
+    "dino chrome game",
+    "t-rex chrome game"
+  ],
+  "author": "Autapomorph (https://github.com/Autapomorph)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Autapomorph/trex-gamebot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Autapomorph/trex-gamebot/issues"
+  },
+  "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "start": "npm run start:dev",
+    "start:dev": "cross-env NODE_ENV=development npm run watch",
+    "start:prod": "cross-env NODE_ENV=production npm run watch",
+    "start:api": "cross-env NODE_ENV=development nodemon api/score.js",
+    "watch": "nodemon src/index.js -e js,mjs,json,yaml",
+    "lint": "eslint .",
+    "lint:staged": "lint-staged --relative"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "express-jwt": "^6.0.0",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "telegraf": "^3.38.0",
+    "telegraf-ratelimit": "^2.0.0",
+    "telegraf-update-logger": "^1.1.7",
+    "winston": "^3.3.3",
+    "winston-transport-sentry-node": "^0.6.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "ignore": "^5.1.8",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:staged"
+    }
+  }
+}
