@@ -1,7 +1,9 @@
 const winston = require('winston');
 const SentryTransport = require('winston-transport-sentry-node').default;
 
-const { isProd } = require('./index');
+const { isProd, name, version } = require('./index');
+
+const { npm_package_name: npmPackageName, npm_package_version: npmPackageVersion } = process.env;
 
 const { format } = winston;
 const { combine, errors, align, colorize, timestamp, splat, printf } = format;
@@ -44,7 +46,7 @@ const logger = winston.createLogger({
       silent: !isProd,
       sentry: {
         dsn: process.env.SENTRY_DSN,
-        release: `${process.env.npm_package_name}@${process.env.npm_package_version}`,
+        release: `${npmPackageName || name}@${npmPackageVersion || version}`,
         normalizeDepth: 10,
         beforeBreadcrumb: breadcrumb =>
           breadcrumb.category === 'http' || breadcrumb.type === 'http' ? null : breadcrumb,
