@@ -23,11 +23,12 @@
     "node": "12.x"
   },
   "scripts": {
-    "start": "npm run start:dev",
-    "start:dev": "cross-env NODE_ENV=development npm run watch",
-    "start:prod": "cross-env NODE_ENV=production npm run watch",
-    "start:api": "cross-env NODE_ENV=development nodemon api/score.js",
+    "start": "cross-env NODE_ENV=development npm run watch",
+    "serve": "cross-env NODE_ENV=production npm run watch",
+    "start:api": "cross-env NODE_ENV=development npm run watch:api",
+    "serve:api": "cross-env NODE_ENV=production npm run watch:api",
     "watch": "nodemon src/index.js -e js,mjs,json,yaml",
+    "watch:api": "nodemon api/score.js -e js,mjs,json,yaml",
     "lint": "eslint .",
     "lint:staged": "lint-staged --relative"
   },

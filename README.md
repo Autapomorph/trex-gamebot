@@ -1,13 +1,13 @@
 # trex-gamebot
 
-Telegram bot to play classic Chrome Dino game (chrome://dino)
+[Telegram bot](https://t.me/trex_gamebot) to play classic Chrome Dino game (chrome://dino)
 
-- This project uses [Dino game clone](https://github.com/Autapomorph/dino) built with [Phaser 3](https://phaser.io/)
-- Also playable [online](https://t-rex.vercel.app)
+- This project uses [Dino game clone](https://github.com/Autapomorph/dino)
+- Also playable [online](https://t-rex.vercel.app) as standalone game
 
-## How to run
+## Running locally
 
-- configure `.env` file
+- configure `.env` file (see `.env.example`)
 - `npm i`
 - `npm start`
 - `npm run start:api`
