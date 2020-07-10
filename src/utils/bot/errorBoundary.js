@@ -22,7 +22,18 @@ module.exports = async (error, ctx) => {
     updateSubTypes,
   });
 
+  // Error sent from Telegram
   if (error.description) {
+    // Forbidden: bot was blocked by the user
+    if (/forbidden.*bot.*blocked.*user/i.test(error.description)) {
+      return;
+    }
+
+    // Too Many Requests: retry after *
+    if (/too.*many.*requests/i.test(error.description)) {
+      return;
+    }
+
     return ctx.replyWithHTML(
       `<b>Telegram returned an error!</b>\n<code>${error.description}</code>`,
     );
