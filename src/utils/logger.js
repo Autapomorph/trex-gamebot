@@ -18,7 +18,12 @@ const formatErrorConsole = format(info => {
 });
 
 const formatErrorSentry = format(info => {
-  const { message, stack, description } = info;
+  const { message, stack, description, sentry } = info;
+
+  if (sentry === false) {
+    return false;
+  }
+
   return {
     ...info,
     message: stack && description ? `${description}\n${message}` : message,
