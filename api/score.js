@@ -61,4 +61,7 @@ app.use((error, req, res, next) => {
   return res.status(status).json(errorObj);
 });
 
-app.listen(PORT, () => logger.info(`Listening at http://localhost:${PORT}`));
+app.listen(PORT, () => {
+  logger.info(`Server is running in ${process.env.NODE_ENV} mode`);
+  logger.info(`Listening at http://localhost:${PORT}`);
+});
