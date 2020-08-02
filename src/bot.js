@@ -3,6 +3,7 @@ const { compose } = require('telegraf/composer');
 const jwt = require('jsonwebtoken');
 
 const { logUpdate, rateLimit } = require('./middlewares');
+const controllers = require('./controllers');
 const commandsList = require('./config/commands');
 const commands = require('./utils/bot/commands');
 const errorBoundary = require('./utils/bot/errorBoundary');
@@ -22,11 +23,10 @@ commands.register(commandsList);
 // register middlewares
 bot.use(compose([logUpdate, rateLimit]));
 
-// handle /start command
-bot.start(async ctx => ctx.replyWithGame('dino'));
-
-// handle /play command
-bot.command('play', async ctx => ctx.replyWithGame('dino'));
+// handle commands
+bot.start(controllers.game);
+bot.command('play', controllers.game);
+bot.command('game', controllers.game);
 
 // handle inline query
 bot.on('inline_query', async ctx => {
