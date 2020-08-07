@@ -23,9 +23,7 @@ commands.register(commandsList);
 bot.use(compose([logUpdate, rateLimit]));
 
 // handle commands
-bot.start(controllers.game.reply);
-bot.command('play', controllers.game.reply);
-bot.command('game', controllers.game.reply);
+bot.command(['start', 'play', 'game'], controllers.game.reply);
 
 // handle inline query
 bot.on('inline_query', controllers.game.inline);
