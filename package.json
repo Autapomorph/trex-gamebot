@@ -43,13 +43,13 @@
     "morgan": "^1.10.0",
     "telegraf": "^3.38.0",
     "telegraf-ratelimit": "^2.0.0",
-    "telegraf-update-logger": "^1.1.7",
+    "telegraf-update-logger": "^1.2.0",
     "winston": "^3.3.3",
     "winston-transport-sentry-node": "^0.6.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "2.22.0",
