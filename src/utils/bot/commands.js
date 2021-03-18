@@ -1,14 +1,12 @@
-const telegram = require('../../telegram');
-
-const get = async () => {
+const get = telegram => async () => {
   return telegram.getMyCommands();
 };
 
-const register = async commands => {
+const register = telegram => async commands => {
   return telegram.setMyCommands(commands);
 };
 
-const unregister = async () => {
+const unregister = telegram => async () => {
   return telegram.setMyCommands([]);
 };
 

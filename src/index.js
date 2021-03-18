@@ -33,3 +33,14 @@ async function launchPollingMode(botInstance) {
   await botInstance.launch();
   logger.info('Bot started in polling mode');
 }
+
+async function shutdown(signal) {
+  logger.info(`Shutting down${signal ? ` (${signal})` : ''}`);
+  bot.stop(signal);
+  process.exit(0);
+}
+
+process.on('SIGHUP', shutdown);
+process.on('SIGINT', shutdown);
+process.on('SIGQUIT', shutdown);
+process.on('SIGTERM', shutdown);

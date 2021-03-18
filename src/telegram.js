@@ -1,9 +1,6 @@
 const { Telegram } = require('telegraf');
 
-const { BOT_TOKEN } = process.env;
-
-// init telegram
-const telegram = new Telegram(BOT_TOKEN, {
+const telegram = new Telegram(process.env.BOT_TOKEN, {
   webhookReply: false,
 });
 

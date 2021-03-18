@@ -1,11 +1,10 @@
-const Telegraf = require('telegraf');
-const { compose } = require('telegraf/composer');
+const { Telegraf, Composer } = require('telegraf');
 
 const { logUpdate, rateLimit } = require('./middlewares');
 const controllers = require('./controllers');
 const commandsList = require('./config/commands');
 const commands = require('./utils/bot/commands');
-const errorBoundary = require('./utils/bot/errorBoundary');
+const errorBoundary = require('./utils/errors/errorBoundary');
 
 const { BOT_TOKEN } = process.env;
 
@@ -17,10 +16,10 @@ const bot = new Telegraf(BOT_TOKEN, {
 });
 
 // register bot commands
-commands.register(commandsList);
+commands.register(bot.telegram)(commandsList);
 
 // register middlewares
-bot.use(compose([logUpdate, rateLimit]));
+bot.use(Composer.compose([logUpdate, rateLimit]));
 
 // handle commands
 bot.command(['start', 'play', 'game'], controllers.game.reply);
