@@ -1,6 +1,6 @@
 const { Markup } = require('telegraf');
 
 module.exports = Markup.inlineKeyboard([
-  Markup.gameButton('🎮 Play Dino!'),
-  Markup.switchToChatButton('↩️ Share with friends', 'play'),
+  Markup.button.game('🎮 Play Dino!'),
+  Markup.button.switchToChat('↩️ Share with friends', 'play'),
 ]);
