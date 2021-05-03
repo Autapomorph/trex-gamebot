@@ -1,4 +1,4 @@
-const ERROR_TYPES = require('../types/telegram');
+const ERROR_TYPES = require('../types');
 
 module.exports = {
   DO_NOT_REPLY: [

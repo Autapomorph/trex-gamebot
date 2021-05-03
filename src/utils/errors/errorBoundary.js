@@ -8,7 +8,7 @@ const logger = require('../logger');
 
 module.exports = async (error, ctx) => {
   // Do not log or reply if blocked by user
-  if (validateError(ERROR_TYPES.TELEGRAM.BLOCKED_BY_USER, error)) {
+  if (validateError(ERROR_TYPES.BLOCKED_BY_USER, error)) {
     return;
   }
 
