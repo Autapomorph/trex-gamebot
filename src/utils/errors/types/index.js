@@ -5,6 +5,8 @@ const ERROR_TYPES = {
   USER_NOT_FOUND: /user.*not.*found/i,
   // Bad Request: chat not found
   CHAT_NOT_FOUND: /chat.*not.*found/i,
+  // Bad Request: have no rights to send a message
+  NO_RIGHTS_TO_SEND_MESSAGE: /no.*rights.*send.*message/i,
   // Bad Request: message is not modified
   MESSAGE_NOT_MODIFIED: /message.*not.*modified/i,
   // Bad Request: invalid file id
